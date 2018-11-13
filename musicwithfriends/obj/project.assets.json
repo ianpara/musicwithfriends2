@@ -5170,7 +5170,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
+      "sha512": "sa/cztXesLyTgCiYuef0RK2EAImnak0w2wrjCh/YBTvbn4iV2eTy0q3F8CyUkGiaYEyxUKGVTko6+7SMRBL4Gg==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "files": [
@@ -11501,28 +11501,30 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\cfarn\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/cfarns01_gmail_com/musicwithfriends/musicwithfriends/musicwithfriends.csproj",
+      "projectUniqueName": "c:\\Users\\cfarn\\musicwithfriends\\musicwithfriends\\musicwithfriends.csproj",
       "projectName": "musicwithfriends",
-      "projectPath": "/home/cfarns01_gmail_com/musicwithfriends/musicwithfriends/musicwithfriends.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/home/cfarns01_gmail_com/musicwithfriends/musicwithfriends/obj/",
+      "projectPath": "c:\\Users\\cfarn\\musicwithfriends\\musicwithfriends\\musicwithfriends.csproj",
+      "packagesPath": "C:\\Users\\cfarn\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\cfarn\\musicwithfriends\\musicwithfriends\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\cfarn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
