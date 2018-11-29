@@ -30,3 +30,39 @@
 /home/cfarns01_gmail_com/musicwithfriends/musicwithfriends/obj/Debug/netcoreapp2.1/musicwithfriends.dll
 /home/cfarns01_gmail_com/musicwithfriends/musicwithfriends/obj/Debug/netcoreapp2.1/musicwithfriends.pdb
 /home/cfarns01_gmail_com/musicwithfriends/musicwithfriends/obj/Debug/netcoreapp2.1/musicwithfriends.csproj.CopyComplete
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.deps.json
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.runtimeconfig.json
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.runtimeconfig.dev.json
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.dll
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.pdb
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.Views.dll
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.Views.pdb
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csprojAssemblyReference.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csproj.CoreCompileInputs.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorAssemblyInfo.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorAssemblyInfo.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.AssemblyInfoInputs.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.AssemblyInfo.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.TagHelpers.input.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.TagHelpers.output.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorCoreGenerate.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Create.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Delete.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Details.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Edit.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.g.cshtml.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorTargetAssemblyInfo.cache
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorTargetAssemblyInfo.cs
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.Views.pdb
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.dll
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.pdb
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csproj.CopyComplete
+C:\Users\Ian\Google Drive\Docs\Website\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Index2.g.cshtml.cs

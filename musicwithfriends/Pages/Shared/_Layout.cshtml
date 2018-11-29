@@ -15,19 +15,15 @@
     </environment>
 </head>
 <body>
-    <partial name="_CookieConsentPartial" />
-<nav class="navbar navbar-dark fixed-top bg-light text-dark flex-md-nowrap p-0">
-    <a class="navbar-brand text-dark col-sm-3 col-md-2 mr-0" >musicwithfriends</a>
-    @*<input class="form-control bg-light border-dark" type="text" placeholder="Search" aria-label="Search">*@
-    <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-        </li>
-    </ul>
-</nav>
-<div class="container-fluid">
-    <div class="row">
+
+    <nav class="navbar-light fixed-top bg-light ">
+        <a class="navbar-brand text-dark col-sm-3 col-md-2" asp-page="Pages/Index" >musicwithfriends</a>
+        @*<input class="form-control bg-light border-dark" type="text" placeholder="Search" aria-label="Search">*@
+    </nav>
+    <div class="container-fluid">
+    
         @*<nav class="col-md-2 d-none d-md-block bg-dark sidebar">
-            await Component.InvokeAsync("Navigation")
+        await Component.InvokeAsync("Navigation")
         </nav>*@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 ">
             <div class="pt-3 pb-2 mb-3 ">
@@ -35,7 +31,6 @@
             </div>
         </main>
     </div>
-</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
