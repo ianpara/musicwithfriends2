@@ -12,5 +12,11 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>musicwithfriends.Models.musicwithfriendsContext</WebStackScaffolding_DbContextTypeFullName>
+    <GoogleCloudPublishConfiguration>Release</GoogleCloudPublishConfiguration>
+    <GoogleComputeEnginePublishOpenWebsite>True</GoogleComputeEnginePublishOpenWebsite>
+    <GoogleComputeEnginePublishLaunchRemoteDebugger>False</GoogleComputeEnginePublishLaunchRemoteDebugger>
+    <GoogleComputeEnginePublishSiteName>Default Web Site</GoogleComputeEnginePublishSiteName>
+    <GoogleCloudPublishChoice>Gce</GoogleCloudPublishChoice>
+    <NameOfLastUsedPublishProfile>AdvancedSettings</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
