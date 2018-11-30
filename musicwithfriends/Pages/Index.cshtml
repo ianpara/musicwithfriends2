@@ -1,27 +1,20 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
+<br>
+<br>
 
-<div class="row text-center">
-</div>
-<div class="row">
-    <div class="col-md-10">
-        <div class="card text-center border-0 shadow bg-dark">
-            <div class="card-title">
-                <h1>musicwithfriends</h1>
-            </div>
-            <div class="card-body">
-                <a class="btn btn-primary"> Create Room</a>
-            </div>
+<div class="col-md-9">
+    <div class="text-center">
+        <div class="card-title">
+            <h1>Listen to music with friends!</h1>
+            <h3>Create a party anywhere.</h3>
+        </div>
+        <div class="card-body">
+            <a class="btn btn-outline-primary btn-lg" asp-page="Chatroom/Create">Create Room</a>
+
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-8">
-    </div>
-</div>
-<div class="row">
-
 </div>
