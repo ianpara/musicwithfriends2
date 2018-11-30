@@ -37,7 +37,6 @@ C:\Users\cfarn\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwi
 C:\Users\cfarn\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.pdb
 C:\Users\cfarn\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.Views.dll
 C:\Users\cfarn\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.Views.pdb
-C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csprojAssemblyReference.cache
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csproj.CoreCompileInputs.cache
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorAssemblyInfo.cache
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorAssemblyInfo.cs
@@ -47,11 +46,6 @@ C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwi
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.TagHelpers.output.cache
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorCoreGenerate.cache
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
-C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Create.g.cshtml.cs
-C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Delete.g.cshtml.cs
-C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Details.g.cshtml.cs
-C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Edit.g.cshtml.cs
-C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Chatroom\Index.g.cshtml.cs
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
 C:\Users\cfarn\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
