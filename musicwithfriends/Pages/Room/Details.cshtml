@@ -1,0 +1,70 @@
+﻿@page
+@model musicwithfriends.Pages.Room.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal"></dl>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card bg-transparent">
+            <div class="card-body ">
+                <audio controls="controls">
+                    <source src="~/Media/01%20-%20One.mp3" type="audio/mpeg" />
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="FileUpload.Title" class="control-label"></label>
+            <input asp-for="FileUpload.Title" type="text" class="form-control" />
+            <span asp-validation-for="FileUpload.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FileUpload.UploadSong" class="control-label"></label>
+            <input asp-for="FileUpload.UploadSong" type="file" class="form-control" style="height:auto" />
+            <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Upload" class="btn btn-default" />
+    </form>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Room.RoomId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+<h3>Loaded Schedules</h3>
+<table class="table">
+    @{
+        var songs = Model.Room.Songs?.ToList();
+    }
+    <tbody>
+    @if (songs != null)
+    {
+        foreach (var item in songs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SongId)
+                </td>
+            </tr>
+        } 
+    } 
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

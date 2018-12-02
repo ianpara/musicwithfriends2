@@ -1,0 +1,54 @@
+﻿@page
+@model musicwithfriends.Pages.Songs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].SongData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].FileLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Room)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Song) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.RoomId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SongId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SongId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SongId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
