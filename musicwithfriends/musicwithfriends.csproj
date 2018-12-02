@@ -17,16 +17,27 @@
     <Compile Remove="Migrations\20181201224335_migration5.Designer.cs" />
     <Compile Remove="Migrations\20181201234337_migration6.cs" />
     <Compile Remove="Migrations\20181201234337_migration6.Designer.cs" />
+    <Compile Remove="Migrations\20181201234456_migration7.cs" />
+    <Compile Remove="Migrations\20181201234456_migration7.Designer.cs" />
+    <Compile Remove="Migrations\20181202175446_ModelsMigration.cs" />
+    <Compile Remove="Migrations\20181202175446_ModelsMigration.Designer.cs" />
+    <Compile Remove="Migrations\20181202175536_InitialMigration.cs" />
+    <Compile Remove="Migrations\20181202175536_InitialMigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Tools" Version="1.1.0-preview4-final" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
     <PackageReference Include="SpotifyAPI.Web" Version="3.1.1" />
     <PackageReference Include="SpotifyAPI.Web.Auth" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Media\" />
   </ItemGroup>
 
 </Project>

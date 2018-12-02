@@ -67,7 +67,6 @@ C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\bin\Debug\netcoreap
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.pdb
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.Views.dll
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\bin\Debug\netcoreapp2.1\musicwithfriends.Views.pdb
-C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csprojAssemblyReference.cache
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csproj.CoreCompileInputs.cache
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorAssemblyInfo.cache
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.RazorAssemblyInfo.cs
@@ -101,3 +100,4 @@ C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreap
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Songs\Details.g.cshtml.cs
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Songs\Edit.g.cshtml.cs
 C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Songs\Index.g.cshtml.cs
+C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csprojAssemblyReference.cache

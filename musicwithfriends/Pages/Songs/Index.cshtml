@@ -17,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.Song[0].SongData)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Song[0].Title)
+                @Html.DisplayNameFor(model => model.Song[0].SongName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Song[0].FileLocation)
@@ -32,10 +32,10 @@
 @foreach (var item in Model.Song) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SongData)
+                @*@Html.DisplayFor(modelItem => item.SongData)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.SongName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FileLocation)

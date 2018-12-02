@@ -8,23 +8,18 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">New Room</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
+<table class="table ">
     <tbody>
 @foreach (var item in Model.Room) {
-        <tr>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.RoomId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.RoomId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.RoomId">Delete</a>
-            </td>
-        </tr>
+    <tr>
+        <td>@item.RoomName</td>
+        <td>
+            <a class="btn btn-success" asp-page="./Details" asp-route-id="@item.RoomId">Enter</a>
+            <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.RoomId">Delete</a>
+        </td>
+    </tr>
 }
     </tbody>
 </table>

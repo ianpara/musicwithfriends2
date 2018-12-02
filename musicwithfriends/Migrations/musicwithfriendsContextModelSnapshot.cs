@@ -21,6 +21,8 @@ namespace musicwithfriends.Migrations
                     b.Property<int>("RoomId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("RoomName");
+
                     b.HasKey("RoomId");
 
                     b.ToTable("Rooms");
@@ -37,7 +39,7 @@ namespace musicwithfriends.Migrations
 
                     b.Property<byte[]>("SongData");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("SongName");
 
                     b.HasKey("SongId");
 

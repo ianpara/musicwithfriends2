@@ -13,24 +13,18 @@ namespace musicwithfriends.Utilities
 
     using musicwithfriends.Models;
 
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ModelBinding;
 
     public class FileHelpers
     {
-        public static async Task<string> ProcessFormFile(IFormFile formFile,
-    ModelStateDictionary modelState)
+        public static async Task<string> ProcessFormFile(IFormFile formFile, ModelStateDictionary modelState)
         {
             var fieldDisplayName = string.Empty;
 
-            // Use reflection to obtain the display name for the model 
-            // property associated with this IFormFile. If a display
-            // name isn't found, error messages simply won't show
-            // a display name.
-            MemberInfo property =
-                typeof(Song).GetProperty(
-                    formFile.Name.Substring(formFile.Name.IndexOf(".") + 1));
+            MemberInfo property = typeof(Song).GetProperty(formFile.Name.Substring(formFile.Name.IndexOf(".") + 1));
 
             if (property != null)
             {
@@ -43,19 +37,9 @@ namespace musicwithfriends.Utilities
                     fieldDisplayName = $"{displayAttribute.Name} ";
                 }
             }
-
-            // Use Path.GetFileName to obtain the file name, which will
-            // strip any path information passed as part of the
-            // FileName property. HtmlEncode the result in case it must 
-            // be returned in an error message.
+            
             var fileName = WebUtility.HtmlEncode(
                 Path.GetFileName(formFile.FileName));
-
-            //if (formFile.ContentType.ToLower() != "text/plain")
-            //{
-            //    modelState.AddModelError(formFile.Name,
-            //        $"The {fieldDisplayName}file ({fileName}) must be a text file.");
-            //}
 
             // Check the file length and don't bother attempting to
             // read it if the file contains no content. This check
@@ -83,13 +67,10 @@ namespace musicwithfriends.Utilities
                     // If uploads require some other encoding, provide the encoding in the 
                     // using statement. To change to 32-bit encoding, change 
                     // new UTF8Encoding(...) to new UTF32Encoding().
-                    using (
-                        var reader =
-                            new StreamReader(
-                                formFile.OpenReadStream(),
-                                new UTF8Encoding(encoderShouldEmitUTF8Identifier: false,
-                                    throwOnInvalidBytes: true),
-                                detectEncodingFromByteOrderMarks: true))
+                    using (var reader = new StreamReader(
+                        formFile.OpenReadStream(),
+                        new UTF8Encoding(false, true),
+                        true))
                     {
                         fileContents = await reader.ReadToEndAsync();
 
@@ -102,18 +83,62 @@ namespace musicwithfriends.Utilities
                         }
                         else
                         {
-                            modelState.AddModelError(formFile.Name,
-                                $"The {fieldDisplayName}file ({fileName}) is empty.");
+                            modelState.AddModelError(formFile.Name, $"The {fieldDisplayName}file ({fileName}) is empty.");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    modelState.AddModelError(formFile.Name,
-                        $"The {fieldDisplayName}file ({fileName}) upload failed. " +
-                        $"Please contact the Help Desk for support. Error: {ex.Message}");
+                    modelState.AddModelError(formFile.Name, $"The {fieldDisplayName}file ({fileName}) upload failed. " + $"Please contact the Help Desk for support. Error: {ex.Message}");
                     // Log the exception
                 }
+            }
+
+            return string.Empty;
+        }
+
+        private readonly IHostingEnvironment _env;
+
+        public FileHelpers(IHostingEnvironment env)
+        {
+            _env = env;
+        }
+
+        public async Task<string> UploadAsync(string path, IFormFile content, string nameWithoutExtension = null)
+        {
+            if (content != null && content.Length > 0)
+            {
+                string extension = Path.GetExtension(content.FileName);
+
+                // Never trust user's provided file name
+                string fileName = $"{ nameWithoutExtension ?? Guid.NewGuid().ToString() }{ extension }";
+
+                // Combine the path with web root and my folder of choice, 
+                // "uploads" 
+                path = Path.Combine(_env.WebRootPath, "uploads", path).ToLower();
+
+                // If the path doesn't exist, create it.
+                // In your case, you might not need it if you're going 
+                // to make sure your `keys.json` file is always there.
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                // Combine the path with the file name
+                string fullFileLocation = Path.Combine(path, fileName).ToLower();
+
+                // If your case, you might just need to open your 
+                // `keys.json` and append text on it.
+                // Note that there is FileMode.Append too you might want to
+                // take a look.
+                using (var fileStream = new FileStream(fullFileLocation, FileMode.Create))
+                {
+                    await content.CopyToAsync(fileStream);
+                }
+
+                // I only want to get its relative path
+                return fullFileLocation.Replace(_env.WebRootPath, string.Empty, StringComparison.OrdinalIgnoreCase);
             }
 
             return string.Empty;

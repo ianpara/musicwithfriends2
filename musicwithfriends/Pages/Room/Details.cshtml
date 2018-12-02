@@ -1,70 +1,42 @@
-﻿@page
+﻿@page "{id:int}"
 @model musicwithfriends.Pages.Room.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Room</h4>
-    <hr />
-    <dl class="dl-horizontal"></dl>
-</div>
+<h4>@Model.Room.RoomName</h4>
+<a asp-page="./Index">Back to Room List</a>
+<br />
+<br />
 <div class="row">
-    <div class="col-md-4">
-        <div class="card bg-transparent">
-            <div class="card-body ">
-                <audio controls="controls">
-                    <source src="~/Media/01%20-%20One.mp3" type="audio/mpeg" />
-                </audio>
+    <div class="col-md-5">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input asp-for="FileUpload.UploadSong" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
+                <label asp-for="FileUpload.AnotherInput" hidden="hidden" class="control-label"></label>
+                <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
             </div>
-        </div>
+        </form>
+    </div>
+    <div class="col-md-2">
+        <input type="submit" value="Upload" class="btn btn-outline-primary" />
     </div>
 </div>
-<div class="row">
-    <form method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label asp-for="FileUpload.Title" class="control-label"></label>
-            <input asp-for="FileUpload.Title" type="text" class="form-control" />
-            <span asp-validation-for="FileUpload.Title" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="FileUpload.UploadSong" class="control-label"></label>
-            <input asp-for="FileUpload.UploadSong" type="file" class="form-control" style="height:auto" />
-            <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
-        </div>
-        <input type="submit" value="Upload" class="btn btn-default" />
-    </form>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Room.RoomId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
-<h3>Loaded Schedules</h3>
-<table class="table">
-    @{
-        var songs = Model.Room.Songs?.ToList();
-    }
-    <tbody>
-    @if (songs != null)
-    {
-        foreach (var item in songs)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SongId)
-                </td>
-            </tr>
-        } 
-    } 
-    </tbody>
-</table>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<h3>Songs in this room</h3>
+<table class="table">
+    @foreach (var song in Model.Room.Songs)
+    {
+        <tr>
+            <td>@song.SongName</td>
+            <td>
+                <audio id="audiosource" controls="controls">
+                    <source src="@song.FileLocation" type="audio/mpeg" />
+                </audio>
+            </td>
+            <td><a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a></td>
+        </tr>
+    }
+</table>
