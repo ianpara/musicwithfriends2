@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Details";
 }
-<h4>@Model.Room.RoomName</h4>
+<h4>@Model.RoomName </h4>
 <a asp-page="./Index">Back to Room List</a>
 <br />
 <br />
@@ -18,16 +18,17 @@
                 <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="form-control" style="height:auto" />
                 <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
             </div>
+            
+            <div class="col-md-2">
+                <input type="submit" value="Upload" class="btn btn-outline-primary" />
+            </div>
         </form>
-    </div>
-    <div class="col-md-2">
-        <input type="submit" value="Upload" class="btn btn-outline-primary" />
     </div>
 </div>
 
 <h3>Songs in this room</h3>
 <table class="table">
-    @foreach (var song in Model.Room.Songs)
+    @foreach (var song in Model.Songs)
     {
         <tr>
             <td>@song.SongName</td>
