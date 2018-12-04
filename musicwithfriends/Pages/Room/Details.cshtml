@@ -4,40 +4,44 @@
 @{
     ViewData["Title"] = "Details";
 }
-<h4>@Model.RoomName </h4>
-<a asp-page="./Index">Back to Room List</a>
-<br />
-<br />
-<div class="row">
-    <div class="col-md-5">
-        <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <input asp-for="FileUpload.UploadSong" type="file" class="form-control" style="height:auto" />
-                <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
-                <label asp-for="FileUpload.AnotherInput" hidden="hidden" class="control-label"></label>
-                <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="form-control" style="height:auto" />
-                <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
-            </div>
-            
-            <div class="col-md-2">
-                <input type="submit" value="Upload" class="btn btn-outline-primary" />
-            </div>
-        </form>
+<div class="container">
+    <br />
+    <div class="row">
+        <a asp-page="./Index" class="btn btn-outline-light" style="margin-right: 15px">Back</a>
+        <h4>@Model.RoomName</h4>
     </div>
-</div>
+    <br />
 
-<h3>Songs in this room</h3>
-<table class="table">
-    @foreach (var song in Model.Songs)
-    {
-        <tr>
-            <td>@song.SongName</td>
-            <td>
-                <audio id="audiosource" controls="controls">
-                    <source src="@song.FileLocation" type="audio/mpeg" />
-                </audio>
-            </td>
-            <td><a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a></td>
-        </tr>
-    }
-</table>
+            <form method="post" enctype="multipart/form-data">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                    </div>
+                    <div class="custom-file">
+                        <input asp-for="FileUpload.UploadSong" type="file" class="custom-file-input"/>
+                        <label class="custom-file-label">Add a song</label>
+                        <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
+                    </div> 
+                        @*<label asp-for="FileUpload.AnotherInput" hidden="hidden" class="control-label"></label>
+                        <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="form-control" style="height:auto" />
+                        <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>*@
+                    </div>
+            </form>
+
+    <h3>Songs:</h3>
+    <br />
+    <table class="table">
+        @foreach (var song in Model.Songs)
+        {
+            <tr>
+                <td>@song.SongName</td>
+                <td>
+                    <audio id="audiosource" controls="controls">
+                        <source src="@song.FileLocation" type="audio/mpeg" />
+                    </audio>
+                </td>
+                <td><a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a></td>
+            </tr>
+        }
+    </table>
+</div>

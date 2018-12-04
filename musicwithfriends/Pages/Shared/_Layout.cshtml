@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - testWebApp</title>
+    <title>@ViewData["Title"]</title>
         <link rel="stylesheet" href="~/lib/bootstrap/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -15,9 +15,8 @@
         <a class="navbar-brand text-dark col-sm-3 col-md-2" asp-page="/Index" >musicwithfriends</a>
     </nav>
     <div class="container-fluid">
-    
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 ">
-            <div class="pt-3 pb-2 mb-3 ">
+        <main role="main">
+            <div >
                 @RenderBody()
             </div>
         </main>
