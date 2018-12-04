@@ -23,7 +23,8 @@
         public FileUpload FileUpload { get; set; }
         public Song Song { get; set; }
         public SelectList RoomSongs { get; set; }
-
+        public string RoomName { get; set; }
+        public int RoomId { get; set; }
         private IHostingEnvironment hostingEnvironment;
         private string appRootFolder;
 
@@ -41,11 +42,15 @@
             }
 
             Room = await _context.Rooms.Include(s => s.Songs).FirstOrDefaultAsync(m => m.RoomId == id);
+            Songs = Room.Songs.ToList();
 
             if (Room == null)
             {
                 return NotFound();
             }
+
+            RoomName = Room.RoomName;
+            RoomId = Room.RoomId;
 
             return Page();
         }
@@ -67,7 +72,7 @@
             var data = FileUpload.UploadSong;
             if (data == null)
             {
-                return Page();
+                return NotFound();
             }
 
             var fileName = WebUtility.HtmlEncode(Path.GetFileName(data.FileName));
@@ -96,7 +101,11 @@
             await _context.SaveChangesAsync();
 
             // redirect back to the index action to show the form once again
-            return RedirectToAction("Details");
+            //return Page();
+            Room = await _context.Rooms.Include(s => s.Songs).FirstOrDefaultAsync(m => m.RoomId == id);
+            Songs = Room.Songs.ToList();
+
+            return Page();
         }
     }
 }

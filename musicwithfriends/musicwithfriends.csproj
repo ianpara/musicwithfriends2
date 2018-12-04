@@ -36,8 +36,4 @@
     <PackageReference Include="SpotifyAPI.Web.Auth" Version="3.1.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Media\" />
-  </ItemGroup>
-
 </Project>
