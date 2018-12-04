@@ -14,6 +14,8 @@
     using Microsoft.Extensions.DependencyInjection;
     using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.AspNetCore.HttpOverrides;
+    using System.Net;
 
     public class Startup
     {
@@ -33,10 +35,18 @@
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+            });
+
             var connection="Data Source=musicwithfriends.db";
+
             services.AddDbContext<musicwithfriendsContext>
                 (options => options.UseSqlite(connection));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +62,12 @@
                 app.UseHsts();
             }
 
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
