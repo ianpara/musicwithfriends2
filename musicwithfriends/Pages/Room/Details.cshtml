@@ -4,7 +4,9 @@
 @{
     ViewData["Title"] = "Details";
 }
+
 <h4>@Model.RoomName </h4>
+<input type="hidden" id="roomId" value="@Model.RoomId"/>
 <a asp-page="./Index">Back to Room List</a>
 <br />
 <br />
@@ -18,7 +20,6 @@
                 <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="form-control" style="height:auto" />
                 <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
             </div>
-            
             <div class="col-md-2">
                 <input type="submit" value="Upload" class="btn btn-outline-primary" />
             </div>
@@ -33,11 +34,56 @@
         <tr>
             <td>@song.SongName</td>
             <td>
-                <audio id="audiosource" controls="controls">
-                    <source src="@song.FileLocation" type="audio/mpeg" />
+                <audio class="video-js" id="my-player" controls preload="auto"  >
+                    <source src="@song.FileLocation" type="audio/mpeg">
                 </audio>
             </td>
             <td><a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a></td>
         </tr>
     }
 </table>
+
+<div id="dvItems" style="font-size:24px;">
+</div>
+
+@section Scripts{ 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var roomId = $('#roomId');
+
+            /**
+             *
+             *
+            $.ajax({
+                type: "GET",
+                url: "/Room/GetSongs?id=" + roomId,
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    alert('success');
+                    var dvItems = $("#dvItems");
+                    dvItems.empty();
+                    $.each(response, function (i, item) {
+                        var $tr = $('<li>').append(item).appendTo(dvItems);
+                    });
+                },
+                failure: function (response) {
+                    alert('failure');
+                }
+            });
+
+            var player = videojs('my-player');
+
+            myPlayer.src([
+                {type: "video/mp4", src: "http://www.example.com/path/to/video.mp4"},
+                {type: "video/webm", src: "http://www.example.com/path/to/video.webm"},
+                {type: "video/ogg", src: "http://www.example.com/path/to/video.ogv"}
+            ]);
+             */
+
+            player.on('ready', function () {
+                player.play();
+            });
+        });
+    </script>
+}
