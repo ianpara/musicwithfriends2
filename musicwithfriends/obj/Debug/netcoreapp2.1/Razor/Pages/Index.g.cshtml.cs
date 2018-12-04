@@ -68,7 +68,7 @@ using musicwithfriends;
             ");
             EndContext();
             BeginContext(360, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6bec2735882e44df8e1056bbe0a4206a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0d3862ff9674f7b9cdc367ddaf5ca8c", async() => {
                 BeginContext(425, 11, true);
                 WriteLiteral("Create Room");
                 EndContext();
@@ -91,7 +91,7 @@ using musicwithfriends;
             WriteLiteral("\r\n            ");
             EndContext();
             BeginContext(454, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9efa8674d1d64e8ba73bb592740dd670", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7072aebc9d8446ebd0b730b13a98678", async() => {
                 BeginContext(520, 10, true);
                 WriteLiteral("Room Index");
                 EndContext();
