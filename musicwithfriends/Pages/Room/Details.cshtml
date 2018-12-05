@@ -1,4 +1,4 @@
-﻿@page "{id:int}"
+﻿@page "{RoomName}"
 @model musicwithfriends.Pages.Room.DetailsModel
 
 @{
@@ -6,84 +6,113 @@
 }
 
 <h4>@Model.RoomName </h4>
-<input type="hidden" id="roomId" value="@Model.RoomId"/>
+<input type="hidden" id="roomId" value="@Model.RoomId" />
 <a asp-page="./Index">Back to Room List</a>
 <br />
 <br />
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-4">
         <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <input asp-for="FileUpload.UploadSong" type="file" class="form-control" style="height:auto" />
-                <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
-                <label asp-for="FileUpload.AnotherInput" hidden="hidden" class="control-label"></label>
-                <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="form-control" style="height:auto" />
-                <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
+            <div class="input-group">
+                <div class="custom-file">
+                    <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
+                    <input asp-for="FileUpload.UploadSong" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                </div>
+                <div class="input-group-append">
+                    <input class="btn btn-outline-secondary" type="submit" value="Upload" />
+                </div>
             </div>
+                <label asp-for="FileUpload.AnotherInput" hidden="hidden" class="control-label"></label>
+                <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="custom-file" style="height:auto" />
+                <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
             <div class="col-md-2">
-                <input type="submit" value="Upload" class="btn btn-outline-primary" />
             </div>
         </form>
+        @Html.AntiForgeryToken()
+    </div>
+    <div class="col-md-4">
     </div>
 </div>
 
-<h3>Songs in this room</h3>
-<table class="table">
-    @foreach (var song in Model.Songs)
-    {
-        <tr>
-            <td>@song.SongName</td>
-            <td>
-                <audio class="video-js" id="my-player" controls preload="auto"  >
-                    <source src="@song.FileLocation" type="audio/mpeg">
-                </audio>
-            </td>
-            <td><a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a></td>
-        </tr>
-    }
-</table>
+<table class="table"></table>
+<video-js class="video-js" id="my-player" controls="controls">
+</video-js>
 
-<div id="dvItems" style="font-size:24px;">
+<div class="row">
+    <div class="col-md-4">
+        <div id="audioTrackChoice">
+            <br /><br />
+            <select class="form-control" id="enabled-audio-track" name="enabled-audio-track">
+                @foreach (var song in Model.Songs)
+                {
+                    <option label="@song.FileLocation" value="@song.FileLocation">@song.SongName</option>
+                }
+            </select>
+        </div>
+    </div>
 </div>
 
-@section Scripts{ 
+@*<a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a>*@
+
+@section Scripts{
     <script type="text/javascript">
         $(document).ready(function () {
-            var roomId = $('#roomId');
+            var roomId = $('#roomId').val();
+            // html5 for html hls
+            var player = videojs('#my-player');
 
-            /**
-             *
-             *
             $.ajax({
-                type: "GET",
-                url: "/Room/GetSongs?id=" + roomId,
-                contentType: "application/json",
-                dataType: "json",
-                success: function (response) {
-                    alert('success');
-                    var dvItems = $("#dvItems");
-                    dvItems.empty();
-                    $.each(response, function (i, item) {
-                        var $tr = $('<li>').append(item).appendTo(dvItems);
-                    });
+                type: 'GET',
+                url: "/Room/Details/@Model.RoomName?handler=SongsList",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
                 },
-                failure: function (response) {
-                    alert('failure');
+
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function (data) {
+                //console.log(JSON.stringify(data));
+                //player.src([
+                //    { type: "audio/mpeg", src: location },
+                //]);
+                    for (var i in data) {
+                        //console.log(JSON.stringify(data[i].fileLocation));
+                        var location = JSON.stringify(data[i].fileLocation).replace(/^"(.+(?="$))"$/, '$1');;
+                        console.log(location);
+                    }
+                });
+
+            var audioTrackList = player.audioTracks();
+            var audioTrackSelect = document.getElementById("enabled-audio-track");
+            audioTrackSelect.addEventListener('change', function () {
+                //var track = audioTrackList[this.selectedIndex];
+                //console.log('User switched to track ' + track.label);
+                //track.enabled = true;
+                player.src([
+                    { type: "audio/mpeg", src: $(this).val()  },
+                ]);
+                player.play();
+            });
+
+            audioTrackList.on('change', function () {
+                for (var i = 0; i < audioTrackList.length; i++) {
+                    var track = audioTrackList[i];
+                    if (track.enabled) {
+                        console.log('A new ' + track.label + ' has been enabled!');
+                    }
                 }
             });
 
-            var player = videojs('my-player');
-
-            myPlayer.src([
-                {type: "video/mp4", src: "http://www.example.com/path/to/video.mp4"},
-                {type: "video/webm", src: "http://www.example.com/path/to/video.webm"},
-                {type: "video/ogg", src: "http://www.example.com/path/to/video.ogv"}
-            ]);
-             */
-
-            player.on('ready', function () {
-                player.play();
+            audioTrackList.on('addtrack', function () {
+                console.log('a track has been added to the audio track list');
             });
+
+            audioTrackList.on('removetrack', function () {
+                console.log('a track has been removed from the audio track list');
+            });
+
         });
     </script>
 }

@@ -34,14 +34,9 @@
             _env = env;
         }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string roomName)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Room = await _context.Rooms.Include(s => s.Songs).FirstOrDefaultAsync(m => m.RoomId == id);
+            Room = await _context.Rooms.Include(s => s.Songs).FirstOrDefaultAsync(room => room.RoomName == roomName);
             Songs = Room.Songs.ToList();
 
             if (Room == null)
@@ -55,20 +50,10 @@
             return Page();
         }
 
-        //public ActionResult PlayAudio(int id)
-        //{
-        //    MemoryStream ms = null;
-        //    byte[] bytes = _context.Songs.FirstOrDefault(s => s.SongId == id).SongData;
-
-        //        ms = new MemoryStream(bytes);
-
-
-        //    return File(ms, "audio/mpeg");//if it's mp3
-        //}
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> OnPostAsync(int id)
+        [HttpGet("{RoomName}")]
+        public async Task<IActionResult> OnPostAsync(string RoomName)
         {
+            Room = await _context.Rooms.Include(s => s.Songs).FirstOrDefaultAsync(room => room.RoomName == RoomName);
             var data = FileUpload.UploadSong;
             if (data == null)
             {
@@ -76,7 +61,7 @@
             }
 
             var fileName = WebUtility.HtmlEncode(Path.GetFileName(data.FileName));
-            string roomPath = $"{_env.WebRootPath}\\Media\\{id}";
+            string roomPath = $"{_env.WebRootPath}/Media/{Room.RoomId}";
             if (!Directory.Exists(roomPath))
             {
                 Directory.CreateDirectory(roomPath);
@@ -93,8 +78,8 @@
             Song = new Song()
             {
                 SongName = data.FileName,
-                RoomId = id,
-                FileLocation = $"\\Media\\{id}\\{fileName}"
+                RoomId = Room.RoomId,
+                FileLocation = $"/Media/{Room.RoomId}/{fileName}"
             };
 
             _context.Songs.Add(Song);
@@ -102,10 +87,21 @@
 
             // redirect back to the index action to show the form once again
             //return Page();
-            Room = await _context.Rooms.Include(s => s.Songs).FirstOrDefaultAsync(m => m.RoomId == id);
+            Room = await _context.Rooms.Include(s => s.Songs).FirstOrDefaultAsync(m => m.RoomName == RoomName);
             Songs = Room.Songs.ToList();
 
             return Page();
+        }
+
+        [HttpGet]
+        public IActionResult OnGetSongsList(string RoomName)
+        {
+            MemoryStream stream = new MemoryStream();
+            Request.Body.CopyTo(stream);
+            stream.Position = 0;
+            List<Song> songs = _context.Songs.Where(s => s.Room.RoomName == RoomName).ToList();
+
+            return new JsonResult(songs);
         }
     }
 }

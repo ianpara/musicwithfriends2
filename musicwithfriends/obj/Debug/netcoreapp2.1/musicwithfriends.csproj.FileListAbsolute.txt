@@ -143,3 +143,4 @@ C:\Users\cfarn\source\repos\musicwithfriends\musicwithfriends\obj\Debug\netcorea
 C:\Users\cfarn\source\repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.pdb
 C:\Users\cfarn\source\repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\musicwithfriends.csproj.CopyComplete
 C:\Users\cfarn\source\repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Room\GetSongs.g.cshtml.cs
+C:\Users\pink\Source\Repos\musicwithfriends\musicwithfriends\obj\Debug\netcoreapp2.1\Razor\Pages\Room\GetSongs.g.cshtml.cs

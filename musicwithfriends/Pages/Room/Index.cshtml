@@ -16,7 +16,7 @@
     <tr>
         <td>@item.RoomName</td>
         <td>
-            <a class="btn btn-success" asp-page="./Details" asp-route-id="@item.RoomId">Enter</a>
+            <a class="btn btn-success" asp-page="./Details" asp-route-RoomName="@item.RoomName">Enter</a>
             <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.RoomId">Delete</a>
         </td>
     </tr>

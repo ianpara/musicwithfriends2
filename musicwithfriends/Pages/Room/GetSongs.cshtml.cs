@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using musicwithfriends.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace musicwithfriends.Pages.Room
 {
@@ -15,13 +17,6 @@ namespace musicwithfriends.Pages.Room
         public GetSongsModel(musicwithfriendsContext context)
         {
             _context = context;
-        }
-
-        public JsonResult OnGet(int RoomId)
-        {
-            List<Song> songs = _context.Songs.Where(s => s.RoomId == RoomId).ToList();
-
-            return new JsonResult(songs);
         }
     }
 }
