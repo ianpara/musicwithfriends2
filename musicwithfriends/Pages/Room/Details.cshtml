@@ -5,58 +5,58 @@
     ViewData["Title"] = "Details";
 }
 
-<h4>@Model.RoomName </h4>
-<input type="hidden" id="roomId" value="@Model.RoomId" />
-<a asp-page="./Index">Back to Room List</a>
-<br />
-<br />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" enctype="multipart/form-data">
-            <div class="input-group">
-                <div class="custom-file">
-                    <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
-                    <input asp-for="FileUpload.UploadSong" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                </div>
-                <div class="input-group-append">
-                    <input class="btn btn-outline-secondary" type="submit" value="Upload" />
-                </div>
-            </div>
-                <label asp-for="FileUpload.AnotherInput" hidden="hidden" class="control-label"></label>
-                <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="custom-file" style="height:auto" />
-                <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
-            <div class="col-md-2">
-            </div>
-        </form>
-        @Html.AntiForgeryToken()
+<div class="container">
+    <br />
+    <div class="row">
+        <input type="hidden" id="roomId" value="@Model.RoomId" />
+        <a asp-page="./Index" class="btn btn-outline-light" style="margin-right: 15px">Back</a>
+        <h4>@Model.RoomName </h4>
     </div>
-    <div class="col-md-4">
-    </div>
-</div>
+        <br />
+        <div class="row">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <span asp-validation-for="FileUpload.UploadSong" class="text-danger"></span>
+                            <input asp-for="FileUpload.UploadSong" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <input class="btn btn-outline-primary" type="submit" value="Upload" />
+                        </div>
+                    </div>
+                    <label asp-for="FileUpload.AnotherInput" hidden="hidden" class="control-label"></label>
+                    <input asp-for="FileUpload.AnotherInput" hidden="hidden" type="file" class="custom-file" style="height:auto" />
+                    <span asp-validation-for="FileUpload.AnotherInput" class="text-danger"></span>
+                    
+                </form>
+                @Html.AntiForgeryToken()
+            
+        </div>
 
-<table class="table"></table>
-<video-js class="video-js" id="my-player" controls="controls">
-</video-js>
+        <table class="table"></table>
+        <video-js class="video-js" id="my-player" controls="controls">
+        </video-js>
 
-<div class="row">
-    <div class="col-md-4">
-        <div id="audioTrackChoice">
-            <br /><br />
-            <select class="form-control" id="enabled-audio-track" name="enabled-audio-track">
-                @foreach (var song in Model.Songs)
-                {
-                    <option label="@song.FileLocation" value="@song.FileLocation">@song.SongName</option>
-                }
-            </select>
+        <div class="row">
+          
+                <div id="audioTrackChoice">
+                    <br /><br />
+                    <select class="form-control" id="enabled-audio-track" name="enabled-audio-track">
+                        @foreach (var song in Model.Songs)
+                        {
+                            <option label="@song.FileLocation" value="@song.FileLocation">@song.SongName</option>
+                        }
+                    </select>
+                </div>
+        
         </div>
     </div>
-</div>
 
-@*<a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a>*@
+        @*<a class="btn btn-outline-danger" asp-page="/Songs/Delete" asp-route-id="@song.SongId">Delete</a>*@
 
-@section Scripts{
-    <script type="text/javascript">
+        @section Scripts{
+            <script type="text/javascript">
         $(document).ready(function () {
             var roomId = $('#roomId').val();
             // html5 for html hls
@@ -114,5 +114,5 @@
             });
 
         });
-    </script>
-}
+            </script>
+        }

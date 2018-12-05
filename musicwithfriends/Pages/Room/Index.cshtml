@@ -2,24 +2,28 @@
 @model musicwithfriends.Pages.Room.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Rooms";
 }
 
-<h2>Index</h2>
-
-<p>
-    <a asp-page="Create">New Room</a>
-</p>
-<table class="table ">
-    <tbody>
-@foreach (var item in Model.Room) {
-    <tr>
-        <td>@item.RoomName</td>
-        <td>
-            <a class="btn btn-success" asp-page="./Details" asp-route-RoomName="@item.RoomName">Enter</a>
-            <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.RoomId">Delete</a>
-        </td>
-    </tr>
-}
-    </tbody>
-</table>
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md"><h2>Rooms</h2></div>
+        <div class="col-md"><a class="btn btn-outline-primary" style="float: right" asp-page="Create">New Room</a></div>
+    </div>
+    <hr />
+        <table class="table table-borderless table-hover">
+            <tbody>
+                @foreach (var item in Model.Room)
+                {
+                    <tr>
+                        <td>@item.RoomName</td>
+                        <td class="float-right">
+                            <a class="btn btn-success" asp-page="./Details" asp-route-RoomName="@item.RoomName">Enter</a>
+                            <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.RoomId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
